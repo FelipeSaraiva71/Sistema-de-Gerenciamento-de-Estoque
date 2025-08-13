@@ -1,14 +1,12 @@
-import java.util.Map;
-import java.util.HashMap;
 
-public class RegistroEntrada extends Produtos{
+public class RegistroEntrada extends Produto{
 
     protected String fornecedor;
     protected String local;
 
-    public RegistroEntrada (String nome, String descricao,int quantidade, double precoUnitario,String operador,String fornecedor,String local){
+    public RegistroEntrada (String SKU,String nome, String descricao,int quantidade,double pesoUnitario, double precoUnitario,String operador,String fornecedor,String local){
 
-        super(nome, descricao,quantidade, precoUnitario,operador);
+        super(SKU,nome, descricao,quantidade,pesoUnitario, precoUnitario,operador);
         this.fornecedor = fornecedor;
         this.local = local;
 

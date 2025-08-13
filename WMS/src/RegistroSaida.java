@@ -1,12 +1,12 @@
-public class RegistroSaida extends Produtos {
+public class RegistroSaida extends Produto {
 
 
     protected String receptor;
     protected String responsavel;
 
-    public RegistroSaida (String nome, String descricao,int quantidade, double precoUnitario,String operador,String receptor, String responsavel){
+    public RegistroSaida (String SKU,String nome, String descricao,int quantidade,double pesoUnitario, double precoUnitario,String operador,String receptor, String responsavel){
 
-        super(nome, descricao,quantidade, precoUnitario,operador);
+        super(SKU,nome, descricao,quantidade,pesoUnitario, precoUnitario,operador);
         this.receptor = receptor;
         this.responsavel = responsavel;
 
