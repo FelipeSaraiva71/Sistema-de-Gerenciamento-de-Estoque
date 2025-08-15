@@ -1,45 +1,35 @@
-
-public class RegistroEntrada extends Produto{
+public class RegistroEntrada extends Produto {
 
     protected String fornecedor;
-    protected String local;
+    protected String observacao;
 
-    public RegistroEntrada (String SKU,String nome, String descricao,int quantidade,double pesoUnitario, double precoUnitario,String operador,String fornecedor,String local){
-
-        super(SKU,nome, descricao,quantidade,pesoUnitario, precoUnitario,operador);
+    public RegistroEntrada(String SKU, String nome, String descricao, int quantidade, double pesoUnitario,
+                           double precoUnitario, String operador, String posicao, String fornecedor, String observacao) {
+        super(SKU, nome, descricao, quantidade, pesoUnitario, precoUnitario, operador, posicao);
         this.fornecedor = fornecedor;
-        this.local = local;
-
+        this.observacao = observacao;
     }
 
-    public String getFornecedor(){
-        return this.fornecedor;
-    }
+    // Getters
+    public String getFornecedor() { return fornecedor; }
+    public String getObservacao() { return observacao; }
 
-    public String getLocal(){
-        return this.local;
-    }
+    // Setters
+    public void setFornecedor(String fornecedor) { this.fornecedor = fornecedor; }
+    public void setObservacao(String observacao) { this.observacao = observacao; }
 
-
-    public  void setFornecedor(String fornecedor){
-        this.fornecedor = fornecedor;
-    }
-
-    public void setLocal (String local){
-        this.local = local;
-    }
-
+    // Tipo de movimentação
     @Override
-    public String tipoMovimentacao(){
-        return "inbound";
+    public String tipoMovimentacao() {
+        return "ENTRADA";
     }
 
+    // Exibição
     @Override
     public void exibir() {
         super.exibir();
-        System.out.println("Fornecedor: "+getFornecedor());
-        System.out.println("Local armazenagem: "+getLocal());
+        System.out.println("Fornecedor: " + getFornecedor());
+        System.out.println("Observação: " + getObservacao());
         System.out.println("------------------------------");
     }
-
 }
