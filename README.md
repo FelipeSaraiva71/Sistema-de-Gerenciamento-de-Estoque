@@ -29,10 +29,11 @@
 - 🆔 Cadastro e validação de operadores com autenticação, incluindo controle de acesso por tipo (liberado/restrito).
 - 🔐 Implementação de acesso exclusivo para administrador, responsável pelo cadastro e gestão de operadores.
 - 📦 Cadastro e controle de SKU (código único de identificação do produto).
-- 🏷️ Gerenciamento de posições e capacidade de armazenamento, com validação de disponibilidade antes de registrar movimentações.
-- ⚖️ Inclusão de atributo de peso nos produtos para cálculo de carga total por posição ou movimentação.
+- 🏷️ Gerenciamento de cargos e capacidade de armazenamento, com validação de disponibilidade antes de movimentações de registrador.
+- 🧠 Estrutura orientada a objetos para controle de posições no estoque, com classe Estoque e subclasses PosicaoVaga e PosicaoOcupada, permitindo validação inteligente de disponibilidade.
+- ⚖️ Inclusão de atributo de peso em nossos produtos para cálculo de carga total por posição ou entrega.
 - 🎨 Desenvolvimento de interface gráfica para facilitar a interação com o sistema.
-- 📋 Registro de logs de movimentações e tentativas de acesso (inclusive negadas), para auditoria e segurança.
+- 📋 Registro de movimentações e tentativas de acesso (inclusive negadas), para auditoria e segurança.
 
 ---
 
