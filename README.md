@@ -24,16 +24,16 @@
 ---
 
 ## 🔮 Melhorias Futuras
-
 - 💾 Integração com banco de dados para persistência de dados (opções em análise: MySQL, PostgreSQL ou SQLite).
-- 🆔 Cadastro e validação de operadores com autenticação, incluindo controle de acesso por tipo (liberado/restrito).
-- 🔐 Implementação de acesso exclusivo para administrador, responsável pelo cadastro e gestão de operadores.
-- 📦 Cadastro e controle de SKU (código único de identificação do produto).
-- 🏷️ Gerenciamento de cargos e capacidade de armazenamento, com validação de disponibilidade antes de movimentações de registrador.
-- 🧠 Estrutura orientada a objetos para controle de posições no estoque, com classe Estoque e subclasses PosicaoVaga e PosicaoOcupada, permitindo validação inteligente de disponibilidade.
-- ⚖️ Inclusão de atributo de peso em nossos produtos para cálculo de carga total por posição ou entrega.
+- 🆔 Cadastro e autenticação de operadores, com controle de acesso por tipo (liberado/restrito).
+- 🔐 Acesso exclusivo para administrador, responsável pela gestão de operadores e permissões.
+- 📦 Cadastro e controle de produtos via SKU, com atributos como nome, descrição, peso, valor e quantidade.
+- 🧱 Refatoração da classe Produto, mantendo apenas atributos comerciais e físicos, enquanto Operador, Posição e Movimentação assumem responsabilidades operacionais.
+- 🧠 Implementação da classe Estoque, com subclasses PosicaoVaga e PosicaoOcupada, para controle inteligente de armazenamento e validação de disponibilidade.
+- 🕒 Criação da classe Movimentacao, para registrar ações no estoque com dataHora, operador, produto, posição e tipo de movimentação (entrada, saída, transferência).
+- ⚖️ Cálculo de carga total por posição ou entrega, com base no atributo de peso dos produtos.
 - 🎨 Desenvolvimento de interface gráfica para facilitar a interação com o sistema.
-- 📋 Registro de movimentações e tentativas de acesso (inclusive negadas), para auditoria e segurança.
+- 📋 Registro completo de movimentações e tentativas de acesso, inclusive negadas, para fins de auditoria e segurança.
 
 ---
 
