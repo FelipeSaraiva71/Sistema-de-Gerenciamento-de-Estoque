@@ -25,13 +25,14 @@
 
 ## 🔮 Melhorias Futuras
 
-💾 Banco de dados para persistência de dados (opções em análise: MySQL, PostgreSQL ou SQLite).  
-🆔 Cadastro e validação de operadores com autenticação.  
-📦 Cadastro e controle de SKU (código único de identificação do produto).  
-🏷️ Controle de posições e capacidade de armazenamento (validar disponibilidade antes de registrar).  
-⚖️ Adicionar peso como atributo para cálculo de carga total.  
-🎨 Interface gráfica para facilitar a interação.  
-📤 Exportar relatórios de estoque e movimentações em PDF/Excel.
+- 💾 Integração com banco de dados para persistência de dados (opções em análise: MySQL, PostgreSQL ou SQLite).
+- 🆔 Cadastro e validação de operadores com autenticação, incluindo controle de acesso por tipo (liberado/restrito).
+- 🔐 Implementação de acesso exclusivo para administrador, responsável pelo cadastro e gestão de operadores.
+- 📦 Cadastro e controle de SKU (código único de identificação do produto).
+- 🏷️ Gerenciamento de posições e capacidade de armazenamento, com validação de disponibilidade antes de registrar movimentações.
+- ⚖️ Inclusão de atributo de peso nos produtos para cálculo de carga total por posição ou movimentação.
+- 🎨 Desenvolvimento de interface gráfica para facilitar a interação com o sistema.
+- 📋 Registro de logs de movimentações e tentativas de acesso (inclusive negadas), para auditoria e segurança.
 
 ---
 
