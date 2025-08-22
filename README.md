@@ -2,43 +2,38 @@
 
 ---
 
-## Funcionalidades
+Funcionalidades
+✅ Login com controle de acesso: Autenticação como Administrador ou Operador, com permissões distintas para registrar entradas e saídas.
+✅ Registro de Entradas: Cadastro completo de produtos que chegam ao estoque, com nome, descrição, quantidade, peso, preço unitário e operador responsável.
+✅ Registro de Saídas: Remoção de produtos do estoque, disponível apenas para administradores, com rastreabilidade completa.
+✅ Geração automática de SKU: Cada produto recebe um código único com prefixo e contador sequencial.
+✅ Controle de posições no estoque: Armazenamento inteligente com PosicaoVaga e PosicaoOcupada, garantindo rastreabilidade física.
+✅ Cálculo de valor total e peso bruto: Multiplica automaticamente quantidade pelo preço e peso unitário.
+✅ Histórico de movimentações: Registro completo de entradas e saídas com data/hora, produto, operador e tipo de movimentação.
+✅ Busca por SKU: Localização rápida de produtos no estoque.
+✅ Exibição do mapa de posições: Visualização clara do estado atual do estoque, posição por posição.
 
-✅ **Registro de Entradas**: Cadastro de produtos que chegam ao estoque, incluindo informações como nome, descrição, quantidade, preço unitário, fornecedor, local de armazenamento e operador responsável.  
-✅ **Registro de Saídas**: Cadastro de produtos retirados do estoque, incluindo receptor, responsável pela retirada e operador.  
-✅ **Cálculo de valor total**: Multiplica automaticamente quantidade pelo preço unitário.  
-✅ **Controle de estoque**: Mantém saldo atualizado de cada produto, validando disponibilidade antes de registrar uma saída.  
-✅ **Exibição detalhada**: Mostra data/hora da entrega e todos os detalhes do registro.  
-✅ **Controle por SKU**: Rastreabilidade por código único de identificação do produto.  
-✅ **Movimentações individuais**: Cada entrada e saída é registrada separadamente, garantindo histórico completo.
+📜 Estrutura do Código
+Produto.java → Classe abstrata com atributos comerciais e físicos, como nome, descrição, quantidade, peso, preço e SKU.
+PessoaAdm.java / PessoaOperador.java → Representam os usuários do sistema com permissões distintas.
+GeradorSku.java → Gera códigos únicos para produtos com base em prefixo e contador.
+EstoqueEntrada.java → Subclasse de Estoque que permite apenas entrada de produtos.
+Posicao.java → Classe abstrata para representar posições no estoque.
+PosicaoVaga.java / PosicaoOcupada.java → Subclasses que indicam se uma posição está livre ou ocupada.
+Movimentacoes.java → Classe abstrata para registrar ações no estoque.
+MovEntrada.java / MovSaida.java → Subclasses que representam movimentações específicas.
+MovimentacoesRegistros.java → Armazena e exibe o histórico completo de movimentações.
+Main.java → Interface via terminal com menu interativo, login e controle de operações.
 
----
+🔮 Melhorias Futuras
+- 💾 Integração com banco de dados para persistência de dados (MySQL, PostgreSQL ou SQLite).
+- 🆔 Cadastro e autenticação de operadores com níveis de acesso.
+- 🔐 Acesso exclusivo para administrador com gestão de permissões.
+- 🧱 Expansão da lógica de posições para múltiplos estoques ou setores.
+- 🕒 Registro de movimentações com posição exata e auditoria de ações.
+- ⚖️ Cálculo de carga total por posição ou entrega.
+- 🎨 Interface gráfica para facilitar a interação com o sistema.
+- 📋 Registro de tentativas de acesso negadas para segurança e auditoria.
 
-## 📜 Estrutura do Código
-
-`Produtos.java` → Classe abstrata que define atributos e métodos comuns para entradas e saídas, incluindo cálculo de valor total e registro de data/hora.  
-`RegistroEntrada.java` → Subclasse para movimentações de entrada, com atributos específicos como fornecedor e local de armazenamento.  
-`RegistroSaida.java` → Subclasse para movimentações de saída, com atributos específicos como receptor e responsável pela retirada.  
-`Gerenciamento.java` → Classe de controle que gerencia registros de entrada, saída, saldo de estoque e rastreabilidade por SKU.
-
----
-
-## 🔮 Melhorias Futuras
-- 💾 Integração com banco de dados para persistência de dados (opções em análise: MySQL, PostgreSQL ou SQLite).
-- 🆔 Cadastro e autenticação de operadores, com controle de acesso por tipo (liberado/restrito).
-- 🔐 Acesso exclusivo para administrador, responsável pela gestão de operadores e permissões.
-- 📦 Cadastro e controle de produtos via SKU, com atributos como nome, descrição, peso, valor e quantidade.
-- 🧱 Refatoração da classe Produto, mantendo apenas atributos comerciais e físicos, enquanto Operador, Posição e Movimentação assumem responsabilidades operacionais.
-- 🧠 Implementação da classe Estoque, com subclasses PosicaoVaga e PosicaoOcupada, para controle inteligente de armazenamento e validação de disponibilidade.
-- 🕒 Criação da classe Movimentacao, para registrar ações no estoque com dataHora, operador, produto, posição e tipo de movimentação (entrada, saída, transferência).
-- ⚖️ Cálculo de carga total por posição ou entrega, com base no atributo de peso dos produtos.
-- 🎨 Desenvolvimento de interface gráfica para facilitar a interação com o sistema.
-- 📋 Registro completo de movimentações e tentativas de acesso, inclusive negadas, para fins de auditoria e segurança.
-
----
-
-## ✨ Autor
-
-Desenvolvido por Felipe Saraiva  
-
----
+✨ Autor
+Desenvolvido por Felipe Saraiva
