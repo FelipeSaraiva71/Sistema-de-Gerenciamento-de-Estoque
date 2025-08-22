@@ -1,48 +1,61 @@
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public abstract class Produto {
 
-    protected String SKU;
-    protected final String nome;
+    protected final String SKU;
+    protected final String nomeProduto;
     protected final String descricao;
     protected int quantidade;
     protected double pesoUnidade;
     protected double precoUnitario;
-    protected String operador;
-    protected String posicao;
-    protected LocalDateTime dataHora;
 
-    public Produto(String SKU, String nome, String descricao, int quantidade, double pesoUnidade,
-                   double precoUnitario, String operador, String posicao) {
+    public Produto(String SKU, String nomeProduto, String descricao, int quantidade, double pesoUnidade,
+                   double precoUnitario) {
         this.SKU = SKU;
-        this.nome = nome;
+        this.nomeProduto = nomeProduto;
         this.descricao = descricao;
         this.quantidade = quantidade;
         this.pesoUnidade = pesoUnidade;
         this.precoUnitario = precoUnitario;
-        this.operador = operador;
-        this.posicao = posicao;
-        this.dataHora = LocalDateTime.now();
+
     }
 
     // Getters
-    public String getSKU() { return SKU; }
-    public String getNome() { return nome; }
-    public String getDescricao() { return descricao; }
-    public int getQuantidade() { return quantidade; }
-    public double getPesoUnidade() { return pesoUnidade; }
-    public double getPrecoUnitario() { return precoUnitario; }
-    public String getOperador() { return operador; }
-    public String getPosicao() { return posicao; }
-    public LocalDateTime getDataHora() { return dataHora; }
+    public String getSKU() {
+        return SKU;
+    }
+
+    public String getNomeProduto() {
+        return nomeProduto;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public double getPesoUnidade() {
+        return pesoUnidade;
+    }
+
+    public double getPrecoUnitario() {
+        return precoUnitario;
+    }
 
     // Setters
-    public void setQuantidade(int quantidade) { this.quantidade = quantidade; }
-    public void setPeso(double peso) { this.pesoUnidade = peso; }
-    public void setPrecoUnitario(double precoUnitario) { this.precoUnitario = precoUnitario; }
-    public void setOperador(String operador) { this.operador = operador; }
-    public void setPosicao(String posicao) { this.posicao = posicao; }
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public void setPeso(double peso) {
+        this.pesoUnidade = peso;
+    }
+
+    public void setPrecoUnitario(double precoUnitario) {
+        this.precoUnitario = precoUnitario;
+    }
 
     // Cálculos
     public double calcularValorTotal() {
@@ -53,26 +66,16 @@ public abstract class Produto {
         return quantidade * pesoUnidade;
     }
 
-    // Tipo de movimentação
-    public String tipoMovimentacao() {
-        return "CADASTRO";
-    }
-
-    // Exibição
-    public void exibir() {
-        System.out.println("=== Dados da movimentação ===");
-        System.out.println("SKU: " + getSKU());
-        System.out.println("Nome do produto: " + getNome());
-        System.out.println("Descrição: " + getDescricao());
-        System.out.println("Quantidade: " + getQuantidade());
-        System.out.println("Peso unitário: " + getPesoUnidade() + " kg");
-        System.out.printf("Peso bruto: %.2f kg%n", calcularPesoBruto());
-        System.out.printf("Preço unitário: R$ %.2f%n", getPrecoUnitario());
-        System.out.printf("Preço total: R$ %.2f%n", calcularValorTotal());
-        System.out.println("Tipo de movimentação: " + tipoMovimentacao());
-        System.out.println("Operador: " + getOperador());
-        System.out.println("Posição no estoque: " + getPosicao());
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-        System.out.println("Movimentação registrada em: " + dataHora.format(formatter));
+    @Override
+    public String toString() {
+        return "=== Dados do Produto ===\n" +
+                "SKU: " + getSKU() + "\n" +
+                "Nome: " + getNomeProduto() + "\n" +
+                "Descrição: " + getDescricao() + "\n" +
+                "Quantidade: " + getQuantidade() + " unidades\n" +
+                "Peso unitário: " + String.format("%.2f", getPesoUnidade()) + " kg\n" +
+                "Peso bruto: " + String.format("%.2f", calcularPesoBruto()) + " kg\n" +
+                "Preço unitário: R$ " + String.format("%.2f", getPrecoUnitario()) + "\n" +
+                "Valor total: R$ " + String.format("%.2f", calcularValorTotal()) + "\n";
     }
 }
