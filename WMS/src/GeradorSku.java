@@ -1,6 +1,6 @@
 public class GeradorSku {
-    protected int contador = 1;
-    protected String prefixo = "PROD-";
+    protected int contador ;
+    protected String prefixo ;
 
     public GeradorSku (int contador,String prefixo){
 

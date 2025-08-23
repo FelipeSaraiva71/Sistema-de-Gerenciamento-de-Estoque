@@ -13,6 +13,6 @@ public class MovSaida extends Movimentacoes{
 
     @Override
     public String toString(){
-        return "[SAIDA] Produto: " + produto + ", Realizado por: " + pessoa.getNomePessoa() + ", Data/Hora: " + dataHora;
+        return "\n[SAIDA] " + super.toString();
     }
 }

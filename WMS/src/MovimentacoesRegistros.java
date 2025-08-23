@@ -19,6 +19,7 @@ public class MovimentacoesRegistros {
 
     public void exibirTodos(){
         for (Movimentacoes mov : registros){
+            System.out.println("__________________________________");
             System.out.println(mov);
         }
     }

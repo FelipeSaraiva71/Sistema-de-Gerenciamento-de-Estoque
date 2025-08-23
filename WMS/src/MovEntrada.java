@@ -13,6 +13,6 @@ public class MovEntrada extends Movimentacoes{
 
     @Override
     public String toString(){
-        return "[ENTRADA] Produto: " + produto + ", Realizado por: " + pessoa.getNomePessoa() + ", Data/Hora: " + dataHora;
+        return "\n[ENTRADA]"+ super.toString() ;
     }
 }

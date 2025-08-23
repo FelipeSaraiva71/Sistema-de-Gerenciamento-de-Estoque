@@ -1,12 +1,12 @@
 import java.time.LocalDateTime;
-
+import java.time.format.DateTimeFormatter;
 public abstract class Movimentacoes {
 
     protected LocalDateTime dataHora;
     protected Produto produto;
     protected Pessoa pessoa;
 
-    public Movimentacoes(LocalDateTime dataHora, Produto produto, Pessoa pessoa){
+    public Movimentacoes(LocalDateTime dataHora, Produto produto, Pessoa pessoa) {
 
         this.dataHora = dataHora;
         this.produto = produto;
@@ -31,8 +31,11 @@ public abstract class Movimentacoes {
 
     @Override
     public String toString() {
-        return "[" + getTipo() + "] Produto: " + produto + ", Realizado por: " + pessoa.getNomePessoa() + ", Data/Hora: " + dataHora;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        return "\nProduto:\n" + produto +
+                "\nRealizado por: " + pessoa.getNomePessoa().toUpperCase() +
+                "\nData/Hora: " + dataHora.format(formatter);
     }
-
-
 }
+
+

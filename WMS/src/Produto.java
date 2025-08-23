@@ -10,6 +10,7 @@ public abstract class Produto {
 
     public Produto(String SKU, String nomeProduto, String descricao, int quantidade, double pesoUnidade,
                    double precoUnitario) {
+
         this.SKU = SKU;
         this.nomeProduto = nomeProduto;
         this.descricao = descricao;
@@ -68,8 +69,7 @@ public abstract class Produto {
 
     @Override
     public String toString() {
-        return "=== Dados do Produto ===\n" +
-                "SKU: " + getSKU() + "\n" +
+        return  "SKU: " + getSKU() + "\n" +
                 "Nome: " + getNomeProduto() + "\n" +
                 "Descrição: " + getDescricao() + "\n" +
                 "Quantidade: " + getQuantidade() + " unidades\n" +
